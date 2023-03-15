@@ -8,5 +8,15 @@
     </head>
     <body>
         この部分はページの本文です
+        <input type="button" value="button" onclick="buttonClick()">
+    <script>
+        function buttonClick(){
+            krt('send', 'sample', {
+                color: 'red',
+                size: 20,
+                is_empty: false
+            });
+        }
+    </script>
     </body>
 </html>
