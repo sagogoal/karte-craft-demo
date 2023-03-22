@@ -7,8 +7,9 @@
         <!-- End KARTE Tag -->
     </head>
     <body>
-        <h3>KARTE demo</h3>
-        <input type="button" value="demo_button" onclick="buttonClick()">
+        <h2>KARTE craft demo</h2>
+        <h4>insert data to BQ</h4>
+        <input type="button" value="button" onclick="buttonClick()">
         <script>
             function buttonClick(){
                 krt('send', 'sample', {
@@ -17,6 +18,34 @@
                     is_empty: false
                 });
             }
+    </script>
+
+    <h4>change customer segment</h4>
+    <label>ユーザID　：<input type="text" id="userId"></label>
+    <br>
+    <label>セグメント：
+        <input type="radio" name="potential" value="high" checked>有望度が高い顧客
+        <input type="radio" name="potential" value="low">有望度が低い顧客
+    </label>
+    <input type="button" value="button" id="checkButton" onclick="segmentButtonClick()">
+    <script>
+        function segmentButtonClick(){
+            krt('send', 'potential-customer-segment', {
+                potential: checkValue, //high or low
+                userId: userId.value
+            });
+        }
+
+        let userId = document.getElementById('userId');
+
+        let potential = document.getElementById('potential')
+        let checkValue = '';
+        for (let i = 0; i < potential.length; i++){
+            if (potential.item(i).checked){
+                checkValue = potential.item(i).value;
+            }
+        }
+        console.log(checkValue, userId)
     </script>
     </body>
 </html>
