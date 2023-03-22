@@ -30,22 +30,22 @@
     <input type="button" value="button" id="checkButton" onclick="segmentButtonClick()">
     <script>
         function segmentButtonClick(){
+
+            let userId = document.getElementById('userId').value;
+
+            let potential = document.getElementsByName('potential')
+            let checkValue = '';
+            for (let i = 0; i < potential.length; i++){
+                if (potential.item(i).checked){
+                    checkValue = potential.item(i).value;
+                }
+            }
             krt('send', 'potential-customer-segment', {
                 potential: checkValue, //high or low
-                userId: userId.value
+                userId: userId
             });
         }
 
-        let userId = document.getElementById('userId');
-
-        let potential = document.getElementById('potential')
-        let checkValue = '';
-        for (let i = 0; i < potential.length; i++){
-            if (potential.item(i).checked){
-                checkValue = potential.item(i).value;
-            }
-        }
-        console.log(checkValue, userId)
     </script>
     </body>
 </html>
