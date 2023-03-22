@@ -41,7 +41,8 @@
                     checkValue = potential.item(i).value;
                 }
             }
-            krt('send', 'potential-customer-segment', {
+            //TODO userIDを模したイベントを送るためには、https://developers.karte.io/reference/post_v2-track-event-write　を利用するよう修正
+            krt('send', 'potential-with-customerId', {
                 potential: checkValue, //high or low
                 userId: userId
             });
